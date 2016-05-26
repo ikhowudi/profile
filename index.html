@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>davidCole</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="script/jquery.min.js"></script>
+    <script src="script/bootstrap.min.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50" id="home">
+    <video loop muted autoplay poster="images/videoframe.jpg">
+        <source src="video/video.webm" type="video/webm">
+    </video>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a id="navbar-brand" class="navbar-brand" href="#home">
+                    <div id="name" onmouseover="onHover()" onmouseout="onHoverOut()" onclick="clickFunction()">
+                        <span id="p1" style="order:1">d</span>
+                        <span id="p2" style="order:2">a</span>
+                        <span id="p3" style="order:3">v</span>
+                        <span id="p4" style="order:4">i</span>
+                        <span id="p5" style="order:5">d</span>
+                        <span id="p6" style="order:6">&nbsp;</span>
+                        <span id="p7" style="order:7">c</span>
+                        <span id="p8" style="order:8">o</span>
+                        <span id="p9" style="order:9">l</span>
+                        <span id="p10" style="order:10">e</span>
+                    </div>
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="navbar-collapse navbar-right collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home"><h1><span id="title">David <span class="lightertext">Cole</span></span></h1></section>
+
+    <section id="about">
+        <div id="aboutme">
+            <p>I'm a freelance front end web developer who enjoys seeing ideas come to life online. My design style is minimalist with a strong attention to detail. Using responsive design, the web sites I create function and look beautiful regardless of the devive used.</p>
+        </div>
+        <div id="skills">
+            <div class="skills">html5</div>
+            <div class="skills">css</div>
+            <div class="skills">javascript</div>
+            <div class="skills">jquery</div>
+            <div class="skills">bootstrap</div>
+        </div>
+    </section>
+
+    <section id="work">
+        <div>
+            <div class="col-sm-4">
+                <img src="images/img1.png" alt="Website design example"></img>
+            </div>
+            <div class="col-sm-4">
+                <img src="images/img2.png" alt="Website design example"></img>
+            </div>
+            <div class="col-sm-4">
+                <img src="images/img3.png" alt="Website design example"></img>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <p>Contact me by email at <a href="mailto:example@gmail.com" target="blank">example@gmail.com</a> for a quote or any questions about my services.</p>
+    </section>
+
+    <script type="text/javascript">
+        // Add scrollspy to <body>
+        $('body').scrollspy({target: ".navbar", offset: 50});
+
+        // Add smooth scrolling to all links inside a navbar
+        $(".navbar a").on('click', function(event){
+
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash (#)
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area (the speed of the animation)
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 600, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+        });
+        });
+    </script>
+    <script type="text/javascript">
+        $('#navbar-brand').hide();
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > ($(window).height() - 50))
+             {
+                $('#navbar-brand').fadeIn();
+                $('#title').hide();
+             }
+            else
+             {
+                $('#navbar-brand').fadeOut();
+                $('#title').fadeIn(1200);
+             }
+         });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#name').mouseenter(function() {
+                $('#p5').css({'order':'9',"transition":"all .2s"});
+                $('#p9').css({'order':'3',"transition":"all .2s"});
+                $('#p1').css({'order':'5',"transition":"all .2s"});
+                $('#p3').css({'order':'1',"transition":"all .2s"});
+            });
+            $('#name').on('mouseleave', function() {
+                $('#name').removeClass("solidShadow")
+                $('#p5').css({'order':'5',"color":"black"});
+                $('#p9').css({'order':'9',"color":"grey"});
+                $('#p1').css({'order':'1',"color":"black"});
+                $('#p3').css({'order':'3',"color":"black"});
+                $('#p2').css({'order':'2',"color":"black"});
+                $('#p4').css({'order':'4',"color":"black"});
+                $('#p6').css({'order':'6'});
+                $('#p7').css({'order':'7',"color":"grey"});
+                $('#p8').css({'order':'8',"color":"grey"});
+                $('#p10').css({'order':'10',"color":"grey"});
+            });
+            $('#name').mousedown(function() {
+                $('#name').addClass("solidShadow");
+                $('#p1').css({"color":"black"});
+                $('#p2').css({"color":"black"});
+                $('#p3').css({"color":"black"});
+                $('#p4').css({"color":"black"});
+                $('#p5').css({"color":"grey"});
+                $('#p7').css({"color":"grey"});
+                $('#p8').css({"color":"grey"});
+                $('#p9').css({"color":"black"});
+                $('#p10').css({"color":"grey"});
+            });
+        });
+    </script>
+</body>
+</html>
